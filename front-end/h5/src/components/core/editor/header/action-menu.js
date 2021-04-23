@@ -28,6 +28,7 @@ export default {
       'saveWork',
       'createWork',
       'fetchWork',
+      'fetchDownload',
       'updateWork',
       'setWorkAsTemplate',
       // 'setEditingElement',
@@ -51,7 +52,7 @@ export default {
     },
     //donwload edited
     handleDownload () {
-      this.DownloadWork({ isdownload: true })
+      this.fetchWork({ isSaveCover: true })
     },
     handleSetAsTemplate () {
       this.updateLoading({ type: 'setWorkAsTemplate_loading', value: true })
@@ -80,7 +81,6 @@ export default {
           <a-button
             size="small"
             onClick={this.handleDownload}
-            loading={this.DownloadWork_loading}
           >{this.$t('editor.header.download')}</a-button>
         </a-menu-item>
         {/*edited */}
