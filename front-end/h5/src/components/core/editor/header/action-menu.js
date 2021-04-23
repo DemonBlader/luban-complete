@@ -49,6 +49,10 @@ export default {
       this.updateWork({ is_publish: true })
       this.saveWork({ successMsg: '发布成功' })
     },
+    //donwload edited
+    handleDownload () {
+      this.DownloadWork({ isdownload: true })
+    },
     handleSetAsTemplate () {
       this.updateLoading({ type: 'setWorkAsTemplate_loading', value: true })
       this.saveWork().then(() => {
@@ -72,6 +76,15 @@ export default {
         style={{ lineHeight: '64px', float: 'right', background: 'transparent' }}
       >
         {/* 保存、预览、发布、设置为模板 */}
+        <a-menu-item key="4" class="transparent-bg">
+          <a-button
+            size="small"
+            onClick={this.handleDownload}
+            loading={this.DownloadWork_loading}
+          >{this.$t('editor.header.download')}</a-button>
+        </a-menu-item>
+        {/*edited */}
+
         <a-menu-item key="1" class="transparent-bg">
           <a-button
             type="primary"
@@ -80,6 +93,7 @@ export default {
             loading={this.previewWork_loading}
           >{this.$t('editor.header.preview')}</a-button>
         </a-menu-item>
+
         <a-menu-item key="2" class="transparent-bg">
           <a-button
             size="small"
@@ -87,6 +101,7 @@ export default {
             loading={this.saveWork_loading || this.uploadWorkCover_loading}
           >{this.$t('editor.header.save')}</a-button>
         </a-menu-item>
+
         {/* <a-menu-item key="3" class="transparent-bg"><a-button size="small">发布</a-button></a-menu-item> */}
         <a-menu-item key="3" class="transparent-bg">
           <a-dropdown-button

@@ -57,6 +57,8 @@ export default {
       }
     },
     header: {
+      //donwload header edited
+      download: 'DL',
       preview: '预览',
       save: '保存',
       publish: '发布',
