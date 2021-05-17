@@ -62,6 +62,7 @@ const fixedTools = [
     icon: 'camera',
     action: function () { this.downloadPoster() }
   }
+  
 ]
 
 export default fixedTools

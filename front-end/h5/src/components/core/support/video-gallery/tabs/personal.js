@@ -61,7 +61,7 @@ export default {
   mounted () {
     // demo code
     axios
-      .get('/upload/files', {
+      .get('./upload/files', {
         params: {
           '_limit': 10,
           '_start': 0,

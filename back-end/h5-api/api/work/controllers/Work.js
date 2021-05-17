@@ -69,6 +69,7 @@ module.exports = {
     // eslint-disable-next-line require-atomic-updates
     return ctx.body = { uuidMap2Name, formRecords };
   },
+  ///works/has-forms: handler not found "work.queryWorksWithForms"
   queryWorksWithForms: async (ctx) => {
     let formRecords = await strapi.query('workform').model.fetchAll({
       withRelated: [
@@ -89,6 +90,7 @@ module.exports = {
 
     return ctx.body = workRecords;
   },
+  //No setasTemplate mean /works/set-as-template/:id: handler not found "work.setAsTemplate"
   setAsTemplate: async (ctx) => {
     const work = await strapi.services.work.findOne({ id: ctx.params.id
     });
@@ -97,6 +99,7 @@ module.exports = {
     const templateWork = await strapi.services.work.create();
     return strapi.services.work.update({id: templateWork.id}, { pages: work.pages, is_template: true, cover_image_url: work.cover_image_url });
   },
+  //No useTemplate mean /works/use-template/:id: handler not found "work.useTemplate"
   useTemplate: async (ctx) => {
     const templateWork = await strapi.services.work.findOne({ id: ctx.params.id
     });
@@ -106,11 +109,13 @@ module.exports = {
     const work = await strapi.services.work.create({ datasources });
     return strapi.services.work.update({id: work.id}, { pages: templateWork.pages, is_template: false });
   },
+  //not sure what this does (arky)
   uploadPSD: async (ctx) => {
     const pageJSON = await strapi.services.work.parsePSD(ctx.request.body.files.file);
     // eslint-disable-next-line
     ctx.body = pageJSON;
   },
+  //No corsProxy server whole error (arky)
   corsProxy: async (ctx) => {
     ctx.body = request(ctx.query.url);
   }

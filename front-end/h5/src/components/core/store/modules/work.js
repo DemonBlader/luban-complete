@@ -6,6 +6,7 @@ import { AxiosWrapper, handleError } from '@/utils/http.js'
 // import router from '@/router.js'
 import { takeScreenshot, downloadPoster } from '@/utils/canvas-helper.js'
 
+
 function setLoading (commit, loadingName, isLoading) {
   commit('loading/update', { type: loadingName, payload: isLoading }, { root: true })
 }

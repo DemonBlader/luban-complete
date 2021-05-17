@@ -19,7 +19,7 @@ export default {
   props: {
     src: {
       type: String,
-      default: `http://localhost:1337/uploads/419a4b0c60f9488c9d44c398dc987471.mp4`,
+      default: `./uploads/419a4b0c60f9488c9d44c398dc987471.mp4`,
       editor: {
         type: 'lbs-video-gallery',
         label: '视频',
@@ -66,7 +66,7 @@ export default {
         this.$refs.iframeWrapper && (this.$refs.iframeWrapper.innerHTML = this.iframeSrc)
       }
       // else if (this.src) {
-      //   this.$refs.videoTag && (this.$refs.videoTag.innerHTML = `<source type="video/mp4" src=${this.src} />`)
+      //   this.$refs.videoTag && (this.$refs.videoTag.innerHTML = `<source type="video/mp4" src=${this.src} >`)
       // }
     }
   },
